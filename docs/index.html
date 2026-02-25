@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Study AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#7c3aed;--muted:#94a3b8}
+    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#071029 0%, #07182a 100%);color:#e6eef8}
+    .container{max-width:980px;margin:48px auto;padding:24px}
+    .hero{display:flex;align-items:center;gap:18px}
+    .logo{width:74px;height:74px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0 0;color:var(--muted)}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;margin-top:20px}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#ff8a00,#e52e71);color:white;text-decoration:none}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    footer{margin-top:28px;color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="logo">VS</div>
+      <div>
+        <h1>Video Study AI</h1>
+        <p class="lead">Transforme vídeos em provas de estudo interativas — extração, transcrição e geração de questões automática.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Demo & Código</h2>
+      <p>O código-fonte está disponível no GitHub. Para executar localmente, clone o repositório e siga o README.</p>
+      <div style="margin-top:12px">
+        <a class="btn" href="https://github.com/francenilsonemidio7-create/Video-study-ai-space" target="_blank">Ver no GitHub</a>
+        <a style="margin-left:8px;color:#cbd5e1;text-decoration:none" href="https://github.com/francenilsonemidio7-create/Video-study-ai-space/releases/tag/v0.1.0" target="_blank">Release v0.1.0</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Como usar</h3>
+        <ol>
+          <li>Cole a URL do vídeo (YouTube/TikTok/Instagram)</li>
+          <li>Escolha o número de questões</li>
+          <li>Clique em "Processar Vídeo" no app Gradio</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>Observações</h3>
+        <ul>
+          <li>Melhor com áudio claro em PT/EN</li>
+          <li>Recomenda-se Python 3.8+ e ffmpeg instalado</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      Desenvolvido com ❤️ — <a href="https://github.com/francenilsonemidio7-create/Video-study-ai-space" style="color:#93c5fd">francenilsonemidio7-create/Video-study-ai-space</a>
+    </footer>
+  </div>
+</body>
+</html>

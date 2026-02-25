@@ -83,14 +83,45 @@ def process(url: str, num_questions: int):
         shutil.rmtree(tmpdir, ignore_errors=True)
 
 
-with gr.Blocks() as demo:
-    gr.Markdown("# 🎓 Video Study AI - Hugging Face Space")
-    with gr.Row():
-        url_in = gr.Textbox(label="URL do vídeo (YouTube / TikTok / Instagram)", placeholder="Cole a URL aqui")
-        num_q = gr.Slider(minimum=3, maximum=15, step=1, value=5, label="Número de questões")
-    btn = gr.Button("Processar Vídeo")
-    transcription_out = gr.Textbox(label="Transcrição", lines=12)
-    questions_out = gr.Textbox(label="Questões geradas", lines=12)
+CSS = """
+body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.hero {
+  background: linear-gradient(135deg,#6dd5ed 0%,#2193b0 100%);
+  color: white; padding: 36px; border-radius: 12px; margin-bottom: 18px;
+}
+.card { background: white; border-radius: 10px; padding: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.label { font-weight: 600; color:#333 }
+.output-box { background:#0f1724; color: #e6eef8; padding:12px; border-radius:8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace; }
+.btn-primary { background: linear-gradient(90deg,#ff8a00,#e52e71); color: white; border: none; padding: 10px 16px; border-radius:8px }
+.small { font-size: 0.9rem; color:#6b7280 }
+"""
+
+with gr.Blocks(css=CSS, title="Video Study AI") as demo:
+    gr.HTML("""
+    <div class='hero'>
+      <h1 style='margin:0'>🎓 Video Study AI</h1>
+      <p style='margin:6px 0 0 0; opacity:0.95'>Transforme vídeos do YouTube, TikTok e Instagram em provas de estudo interativas.</p>
+    </div>
+    """)
+
+    with gr.Row().style(mobile_collapse=False):
+        with gr.Column(scale=2):
+            with gr.Card():
+                url_in = gr.Textbox(label="URL do vídeo", placeholder="Cole a URL do YouTube / TikTok / Instagram aqui")
+                num_q = gr.Slider(minimum=3, maximum=15, step=1, value=5, label="Número de questões")
+                btn = gr.Button("Processar Vídeo", elem_classes="btn-primary")
+                gr.Markdown("""<div class='small'>Exemplos: <br>https://www.youtube.com/watch?v=dQw4w9WgXcQ</div>""")
+                examples = gr.Examples([
+                    ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", 5],
+                ], inputs=[url_in, num_q], examples_per_page=3)
+
+        with gr.Column(scale=3):
+            with gr.Card():
+                gr.Markdown("**Transcrição**")
+                transcription_out = gr.Textbox(label=None, lines=12, interactive=False)
+            with gr.Card():
+                gr.Markdown("**Questões geradas**")
+                questions_out = gr.Textbox(label=None, lines=12, interactive=False)
 
     btn.click(process, inputs=[url_in, num_q], outputs=[transcription_out, questions_out])
 
