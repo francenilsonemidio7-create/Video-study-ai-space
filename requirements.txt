@@ -1,0 +1,9 @@
+gradio>=3.0
+yt-dlp
+openai-whisper
+transformers
+torch
+accelerate
+ffmpeg-python
+pydub
+sentencepiece
