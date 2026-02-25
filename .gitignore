@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Env
+.env
+venv/
+.env.*
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# PyTorch / models
+*.pt
+*.pth
+*.bin
+models/
+checkpoints/
+
+# Audio / temp
+*.wav
+*.mp3
+*.m4a
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Misc
+*.cache
